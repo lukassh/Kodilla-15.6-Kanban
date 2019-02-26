@@ -1,7 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
 
-
-
 function randomString() {
 	var chars = '0123456789abcdefghiklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXTZ';
 	var str = '';
@@ -29,7 +27,7 @@ function Column(name) {
 	this.id = randomString();
 	this.name = name;
 	this.element = generateTemplate('column-template', { name: this.name });
-
+	initSortable(this.element.querySelector('ul') , 'card');
 	this.element.querySelector('.column').addEventListener('click', function (event) {
 		if (event.target.classList.contains('btn-delete')) {
 			self.removeColumn();
@@ -75,8 +73,7 @@ var board = {
 	name: 'Kanban Board',
 	addColumn: function(column) {
 		this.element.appendChild(column.element);
-		
-		// initSortable(column.element.parentNode);
+		// initSortable(column.element.parentNode, 'kanban');
 	},
 
 	element: document.querySelector('#board .column-container')
@@ -109,11 +106,13 @@ board.addColumn(doneColumn);
 // CREATING CARDS
 var card1 = new Card('New task');
 var card2 = new Card('Create kanban boards');
+var card3 = new Card('');
 
 
 // ADDING CARDS TO COLUMNS
 todoColumn.addCard(card1);
 doingColumn.addCard(card2);
+
 
 var kolumny = document.querySelectorAll('.column');
 kolumny[1].classList.add('klasaDoing');
