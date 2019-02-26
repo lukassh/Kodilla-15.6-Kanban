@@ -12,34 +12,57 @@ body {
 }
 
 .board {
+  margin-top: 10vh;
   background: rgba(236, 240, 241, 0.9);
-  min-height: 95vh;
+  min-height: 80vh;
+  height: 100%;
   border-radius: 5px;
   padding: 20px;
+  position: relative;
 }
 
-.board h1 {
-  font-family: 'Pacifico', cursive;
+.board header {
+  border-radius: 5px;
+  border: 2px solid #22a6b3;
+  text-align: center;
+}
+
+.board header h1 {
+  font-family: 'Montserrat';
   font-size: 30px;
   letter-spacing: 5px;
   font-weight: 300;
+  color: #22a6b3;
 }
 
 .board .create-column {
-  background: transparent;
   padding: 10px;
   border-radius: 5px;
-  background: #7f8c8d;
+  background: #22a6b3;
   color: #fff;
+  position: absolute;
+  bottom: 30px;
+  left: 40px;
+  border: none;
+  transition: ease 1s;
+}
+
+.board .create-column:hover {
+  background: #ff7979;
+  cursor: pointer;
+}
+
+.board .column-container {
+  margin-top: 30px;
 }
 
 .board .column {
   margin: 20px;
   float: left;
   width: 300px;
-  min-height: 300px;
+  min-height: 200px;
   height: 100%;
-  background: #7f8c8d;
+  background: #ff7979;
   border-radius: 5px;
   padding: 20px;
   position: relative;
@@ -81,6 +104,13 @@ body {
 
 .board .column ul {
   list-style: none;
+  min-height: 200px;
+  height: auto;
+  width: 100%;
+}
+
+.board .column ul li {
+  min-height: 40px;
 }
 
 .board .column li:nth-child(even) {
@@ -107,6 +137,14 @@ body {
   font-size: 26px;
   font-family: 'Satisfy', cursive;
   color: #000;
+}
+
+.board .klasaDone {
+  background: #6ab04c;
+}
+
+.board .klasaDoing {
+  background: #22a6b3;
 }
 
 /*# sourceMappingURL=style.css.map */
